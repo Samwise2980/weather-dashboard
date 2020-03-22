@@ -37,7 +37,7 @@
 
             <div class="input-group mb-5">
 
-              <input type="text" class="form-control" placeholder="San Diego" aria-label="Example text with button addon" aria-describedby="city-search-button">
+              <input type="text" class="form-control" id="location-name" placeholder="San Diego" aria-label="Example text with button addon" aria-describedby="city-search-button">
 
               <div class="input-group-append">
 
@@ -65,10 +65,10 @@
             
             <div class="list-group" id="city-history">
               
-              <a href="#" class="list-group-item list-group-item-action">Austin</a>
-              <a href="#" class="list-group-item list-group-item-action">Seattle</a>
-              <a href="#" class="list-group-item list-group-item-action">London</a>
-              <a href="#" class="list-group-item list-group-item-action">Sydney</a>
+              <button class="list-group-item list-group-item-action history" data-name="Austin">Austin</button>
+              <button class="list-group-item list-group-item-action history" data-name="Seattle">Seattle</button>
+              <button class="list-group-item list-group-item-action history" data-name="London">London</button>
+              <button class="list-group-item list-group-item-action history" data-name="Sydney">Sydney</button>
               
             </div>
 
@@ -88,7 +88,7 @@
               
               <div class="col mt-4 ml-3">
                 
-                <p class="h2">Atlanta (3/21/2020)</p>
+                <p class="h2" id="current-name"></p>
                 
               </div>
               
@@ -98,7 +98,7 @@
 
               <div class="col mt-3 ml-3">
 
-                <p>Tempature: 90.9 &deg;F</p>
+                <p id="current-temp"></p>
                 
               </div>
 
@@ -108,7 +108,7 @@
 
               <div class="col mt-3 ml-3">
 
-                <p>Humidity: 41%</p>
+                <p id="current-humid"></p>
                 
               </div>
               
@@ -118,7 +118,7 @@
 
               <div class="col mt-3 ml-3">
 
-                <p>Wind Speed: 4.7 MPH</p>
+                <p id="current-wind"></p>
                 
               </div>
               
@@ -128,7 +128,7 @@
 
               <div class="col mt-3 ml-3 mb-5">
 
-                <p>UV Index: 9.49</p>
+                <p  id="current-uv"></p>
                 
               </div>
               
@@ -148,7 +148,7 @@
 
         </div>
 
-        <div class="row">
+        <div class="row m-0">
 
           <div class="col-md-2 pt-3 pb-2 m-2 bg-primary text-white rounded">
 
@@ -224,6 +224,7 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./script.js"></script>
 </body>
 </html>
