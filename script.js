@@ -9,13 +9,14 @@ var oldNames = [];
 
 if (localStorage.key("CityNames") === null){
 
-
 }
 
 else {
   var getData = JSON.parse(localStorage.getItem("CityNames"));
   oldNames = getData
   oldCityHistory()
+  lastCity();
+
 }
 
 $("#city-search-button").on("click", function(){
@@ -268,6 +269,5 @@ function lastCity(){
 
 };
 
-lastCity();
   
 recallHistory();
