@@ -43,7 +43,7 @@ $("#city-search-button").on("click", function(){
     var lon = response.city.coord.lon
     var lat = response.city.coord.lat
 
-    var uvIndexURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat +"&lon=" + lon;
+    var uvIndexURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat +"&lon=" + lon;
 
       $.ajax({ url: uvIndexURL, method: "GET"})
 
