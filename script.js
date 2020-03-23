@@ -81,7 +81,7 @@ function currentAndFiveDay (response){
 
   var currentIcon = response.list[0].weather[0].icon
   var newImage = $("<img>");
-  newImage.attr("src", "http://openweathermap.org/img/wn/" + currentIcon + "@2x.png")
+  newImage.attr("src", "https://openweathermap.org/img/wn/" + currentIcon + "@2x.png")
   $("#current-name").empty()
   $("#current-name").text(cityName + " (" + currentDate + ") ");
   $("#current-name").append(newImage)
@@ -96,7 +96,7 @@ function currentAndFiveDay (response){
   var day1Icon = response.list[5].weather[0].icon
   $("#day-one").text(dayDate1)
   var newImage1 = $("<img>");
-  newImage1.attr("src", "http://openweathermap.org/img/wn/" + day1Icon + "@2x.png")
+  newImage1.attr("src", "https://openweathermap.org/img/wn/" + day1Icon + "@2x.png")
   $("#day-one-img").empty();
   $("#day-one-img").append(newImage1);
   $("#day-one-temp").html("Temp: " + day1Temp.toFixed(1) + " &deg;F")
@@ -109,7 +109,7 @@ function currentAndFiveDay (response){
   var day2Icon = response.list[13].weather[0].icon
   $("#day-two").text(dayDate2)
   var newImage2 = $("<img>");
-  newImage2.attr("src", "http://openweathermap.org/img/wn/" + day2Icon + "@2x.png")
+  newImage2.attr("src", "https://openweathermap.org/img/wn/" + day2Icon + "@2x.png")
   $("#day-two-img").empty();
   $("#day-two-img").append(newImage2);
   $("#day-two-temp").html("Temp: " + day2Temp.toFixed(1) + " &deg;F")
@@ -122,7 +122,7 @@ function currentAndFiveDay (response){
   var day3Icon = response.list[21].weather[0].icon
   $("#day-three").text(dayDate3)
   var newImage3 = $("<img>");
-  newImage3.attr("src", "http://openweathermap.org/img/wn/" + day3Icon + "@2x.png")
+  newImage3.attr("src", "https://openweathermap.org/img/wn/" + day3Icon + "@2x.png")
   $("#day-three-img").empty();
   $("#day-three-img").append(newImage3);
   $("#day-three-temp").html("Temp: " + day3Temp.toFixed(1) + " &deg;F")
@@ -135,7 +135,7 @@ function currentAndFiveDay (response){
   var day4Icon = response.list[29].weather[0].icon
   $("#day-four").text(dayDate4)
   var newImage4 = $("<img>");
-  newImage4.attr("src", "http://openweathermap.org/img/wn/" + day4Icon + "@2x.png")
+  newImage4.attr("src", "https://openweathermap.org/img/wn/" + day4Icon + "@2x.png")
   $("#day-four-img").empty();
   $("#day-four-img").append(newImage4);
   $("#day-four-temp").html("Temp: " + day4Temp.toFixed(1) + " &deg;F")
@@ -148,7 +148,7 @@ function currentAndFiveDay (response){
   var day5Icon = response.list[37].weather[0].icon
   $("#day-five").text(dayDate5)
   var newImage5 = $("<img>");
-  newImage5.attr("src", "http://openweathermap.org/img/wn/" + day5Icon + "@2x.png")
+  newImage5.attr("src", "https://openweathermap.org/img/wn/" + day5Icon + "@2x.png")
   $("#day-five-img").empty();
   $("#day-five-img").append(newImage5);
   $("#day-five-temp").html("Temp: " + day5Temp.toFixed(1) + " &deg;F")
@@ -210,7 +210,7 @@ function recallHistory (){
       currentAndFiveDay(response);
       var lon = response.city.coord.lon
       var lat = response.city.coord.lat
-      var uvIndexURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat +"&lon=" + lon;
+      var uvIndexURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat +"&lon=" + lon;
 
       $.ajax({ url: uvIndexURL, method: "GET"})
 
@@ -255,7 +255,7 @@ function lastCity(){
 
     var lon = response.city.coord.lon
     var lat = response.city.coord.lat
-    var uvIndexURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat +"&lon=" + lon;
+    var uvIndexURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat +"&lon=" + lon;
 
     $.ajax({ url: uvIndexURL, method: "GET"})
       
