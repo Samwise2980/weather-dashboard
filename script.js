@@ -1,8 +1,3 @@
-
-
-// WHEN I view the UV index
-// THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-
 moment();
 
 var oldNames = [];
@@ -12,6 +7,7 @@ if (localStorage.key("CityNames") === null){
 }
 
 else {
+
   var getData = JSON.parse(localStorage.getItem("CityNames"));
   oldNames = getData
   oldCityHistory()
@@ -37,7 +33,6 @@ $("#city-search-button").on("click", function(){
 
   .then(function(response) {
 
-    // Current day & Five Day
     currentAndFiveDay(response);
 
     var lon = response.city.coord.lon
@@ -57,7 +52,6 @@ $("#city-search-button").on("click", function(){
 
 });
 
-// Will listen for static elements
 
 
 function newCityHistory(){
@@ -70,8 +64,9 @@ function newCityHistory(){
   
 };
 
-function currentAndFiveDay (response){
 
+
+function currentAndFiveDay (response){
 
   var cityName = (response.city.name);
   var currentDate = moment().calendar("MM, DD, YYYY");
@@ -89,7 +84,8 @@ function currentAndFiveDay (response){
   $("#current-humid").text("Humidity: " + currentHumid + "%")
   $("#current-wind").text("Wind Speed: " + currentWind + " MPH")
 
-  // 1-8 Day 1
+  // Day 1
+
   var dayDate1 = moment().add(1, 'day').calendar("MM, DD, YYYY");
   var day1Temp = ((response.list[5].main.temp - 273.15) * 1.8 + 32);
   var day1Humid = response.list[5].main.humidity;
@@ -101,8 +97,9 @@ function currentAndFiveDay (response){
   $("#day-one-img").append(newImage1);
   $("#day-one-temp").html("Temp: " + day1Temp.toFixed(1) + " &deg;F")
   $("#day-one-humid").text("Humidity: " + day1Humid + "%")
-  // 9-16 Day 2
   
+  // Day 2
+
   var dayDate2 = moment().add(2, 'day').calendar("MM, DD, YYYY");
   var day2Temp = ((response.list[13].main.temp - 273.15) * 1.8 + 32);
   var day2Humid = response.list[13].main.humidity;
@@ -114,8 +111,9 @@ function currentAndFiveDay (response){
   $("#day-two-img").append(newImage2);
   $("#day-two-temp").html("Temp: " + day2Temp.toFixed(1) + " &deg;F")
   $("#day-two-humid").text("Humidity: " + day2Humid + "%")
-  // 17-24 Day 3
   
+  // Day 3
+
   var dayDate3 = moment().add(3, 'day').calendar("MM, DD, YYYY");
   var day3Temp = ((response.list[21].main.temp - 273.15) * 1.8 + 32);
   var day3Humid = response.list[21].main.humidity;
@@ -127,7 +125,8 @@ function currentAndFiveDay (response){
   $("#day-three-img").append(newImage3);
   $("#day-three-temp").html("Temp: " + day3Temp.toFixed(1) + " &deg;F")
   $("#day-three-humid").text("Humidity: " + day3Humid + "%")
-  // 25-32 Day 4
+
+  // Day 4
   
   var dayDate4 = moment().add(4, 'day').calendar("MM, DD, YYYY");
   var day4Temp = ((response.list[29].main.temp - 273.15) * 1.8 + 32);
@@ -140,7 +139,8 @@ function currentAndFiveDay (response){
   $("#day-four-img").append(newImage4);
   $("#day-four-temp").html("Temp: " + day4Temp.toFixed(1) + " &deg;F")
   $("#day-four-humid").text("Humidity: " + day4Humid + "%")
-  // 33-39 Day 5
+
+  // Day 5
   
   var dayDate5 = moment().add(5, 'day').calendar("MM, DD, YYYY");
   var day5Temp = ((response.list[37].main.temp - 273.15) * 1.8 + 32);
@@ -155,10 +155,13 @@ function currentAndFiveDay (response){
   $("#day-five-humid").text("Humidity: " + day5Humid + "%")
 }
 
+
+
 function uvIndexF(result){
+
+  // Creates UV Index Elements
   
   var uvIndex = (JSON.parse(result.value));
-
   var newPP = $("<p>");
   var newP = $("<button>");
   $("#current-uv").empty();
@@ -168,6 +171,8 @@ function uvIndexF(result){
   newPP.html("UV Index: ");
   newPP.attr("id", "button-holder")
   $("#current-uv").append(newPP);
+
+  // Changes the color based on the severity.
 
   if(uvIndex > 0  && uvIndex < 3){
 
@@ -190,7 +195,11 @@ function uvIndexF(result){
 
 };
 
+
+
 function recallHistory (){
+
+  // Listens for the click on the elements that loaded with the page.
 
   $(".history").on("click", function(){
         
@@ -201,7 +210,6 @@ function recallHistory (){
     var APIKey = "61884189ea401251c54c2d436ff4118c";
     
     var fiveDay = "https://api.openweathermap.org/data/2.5/forecast?" + "q=" + dataName + "&appid=" +  APIKey;
-    
     
     $.ajax({url: fiveDay, method: "GET"})
     
@@ -226,6 +234,8 @@ function recallHistory (){
 
 };
 
+
+ 
 function oldCityHistory(){
 
   for (var i = 0; i < oldNames.length; i++){
@@ -250,7 +260,6 @@ function lastCity(){
 
   .then(function(response) {
     
-    // Current day & Five Day
     currentAndFiveDay(response);
 
     var lon = response.city.coord.lon
